@@ -1,4 +1,4 @@
-//#region 
+
 //numero control y nombre
 //18100157 -- Cesar Castro Salazar
-//#endregion
+//18100145 Jordan Alejandro Aleman Perez
