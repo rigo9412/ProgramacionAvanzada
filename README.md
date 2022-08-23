@@ -136,9 +136,8 @@ Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
    - 3.2.1. Refs
    - 3.2.1. Render Props
    - 3.2.1. Temporizadores
-   - 3.2.1. Temporizadores
  
-## Temas Unidad 4 Next Js 
+## Temas Unidad 4 Next js 
 - 4.1. Introducción a Next JS
    - 4.1.1 Pages
    - 4.1.2 Layout
