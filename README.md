@@ -14,17 +14,6 @@ Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
 | Ejercios | 60 %|
 | Proyecto Personal* | 80 % (solo en la unidad final) |
 
-## Unidad 1
-
-| Alumno             | 01                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| 18100145 - ALEMAN PEREZ JORDAN ALEJANDRO | 0|
-| 18100149 - ANDRADE DOMINGUEZ JESUS ALFONSO| 0 |
-| 18100157 - CASTRO SALAZAR CESAR | 0 |
-| 18100165 - DE LA ROSA GOMEZ FRANCISCO JAVIER | 0 |
-| 17100250 - MARTINEZ RUBIO LUIS ARMANDO | 0 |
-| 17100264 - NEIRA JAIME JUAN ANTONIO  | 0 |
-
 
 ## Temas Unidad 1 Introducción lado Cliente
  
