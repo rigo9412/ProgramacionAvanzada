@@ -1,4 +1,4 @@
 var a =1;
 var b = 3;
-resultado = a+b;
+var resultado = a+b;
 console.log(resultado);
