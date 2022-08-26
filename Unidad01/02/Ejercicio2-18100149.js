@@ -10,10 +10,8 @@ for(let i= Numero; i>=-1; i--)
 let numero = 9
 
 function ReducirNumeros (numero) {
-  if(numero == 0)
-    {
-      return;
-    }
+  if(numero === -1) return;
+    
 console.log(numero);
 return ReducirNumeros(numero-1);
 }
