@@ -14,7 +14,7 @@ Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
 | Ejercios | 60 %|
 | Proyecto Personal* | 80 % (solo en la unidad final) |
 
-// update 
+
 ## Temas Unidad 1 Introducción lado Cliente
  
 - 1.1. Introducción a JavaScript
