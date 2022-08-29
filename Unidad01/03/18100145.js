@@ -1,15 +1,34 @@
 
-var array = [true, true, true, true, true,'true'];
 
-var contador=0;
 
-for(let i=0; i < array.length; i++) 
+
+
+let Arreglo = ['true','true'];
+let cont = 0;
+
+
+if(!(Array.isArray(Arreglo)))
 {
-    if(array[i] == true)
+   
+    console.log("Necesita un arreglo");
+    
+    
+}
+else
+{
+    if(!Arreglo.length)
     {
-        contador++;
+        console.log("Es un arreglo pero esta vacio")
     }
+    else
+    {
+        cont = Arreglo.filter( i => i === 'true').length;
+        console.log(cont);
+    }
+    
+    
+    
 
 }
 
-console.log(contador);
+
