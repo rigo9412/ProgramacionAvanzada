@@ -8,4 +8,4 @@ for (var i = 0; i < arreglo.length; i++) {
     }
 }
 
-console.log(cont)
+console.log("resultado: "+cont)
