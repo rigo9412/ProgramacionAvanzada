@@ -1,4 +1,4 @@
-function ContarTrues(){
+/*function ContarTrues(){
     let contador = 0;
     let CantTS = ['true','true','true','true','false','false','false','true'].sort();
     
@@ -10,6 +10,19 @@ function ContarTrues(){
     return contador;
   }
   
+  console.log("Resultado = " + ContarTrues());*/
+
+  function ContarTrues(){
+    let contador = 0;
+    let CantTS = 'ggg';
+    
+    if(!(Array.isArray(CantTS))) return 0
+    else
+    { 
+        contador=CantTS.filter(i => i === 'true').length;
+        
+    }
+   
+    return contador;
+  }
   console.log("Resultado = " + ContarTrues());
-
-
