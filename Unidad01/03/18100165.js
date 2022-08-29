@@ -1,8 +1,8 @@
-const arreglo = ['true', 'false', '2', 'true', '1', 'false', 'true'];
-
+var arreglo = ['true', 'false', '2', 'true', '1', 'false', 'true'];
+var cont=0;
 for(let i=0; i<arreglo.length; i++) {
-    if(arreglo[i]='true'){
-        cont=cont+1;
+    if(arreglo[i] == 'true'){
+        cont++;
     }
-  console.log(`Element at index ${i} is ${arreglo[i]}`);
 }
+console.log("Hay "+cont+" true's en el arreglo");
