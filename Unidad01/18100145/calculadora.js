@@ -1,9 +1,11 @@
 const body = document.getElementById("body")
-console.log(body)
 
-body.addEventListener("click",(event) => {
 
-    console.log(event.target.tagName)
+const input = document.getElementById("resultado");
+
+body.addEventListener("keypress",(event) => {
+
+    input.value = event.key;
     
 
 })
