@@ -36,6 +36,7 @@ botonEsp.forEach(function(boton1){
     })
 })
 
+//Función para borrar o limpiar display
 function Limpiar_Borrar(borrar){
     switch(borrar){
         case'C':
@@ -52,16 +53,25 @@ function Limpiar_Borrar(borrar){
     }
 }
 
+//Método concatenar
+function Concatenar(num){
+    if(!isNaN(num)){
+        Input2.value += num;
+    }else{
+        Input1.value = Input2.value+" "+ num;
+        Input2.value="";
+    }
+}
+
 //Función Calcular() donde se realizan todos los procesos
 function Calcular(Temp){
     var Res=0;
 
     if(!isNaN(Temp) || Temp === "."){
-        Input2.value += Temp;
-}
+        Concatenar(Temp);
+    }
     else if(ArregloOp.includes(Temp)){
-        Input1.value = Input2.value+" "+ Temp;
-        Input2.value="";
+        Concatenar(Temp);
 
     }else if(ArregloBorrar.includes(Temp)){
         Limpiar_Borrar(Temp);
@@ -70,6 +80,7 @@ function Calcular(Temp){
         
         Input1.value=Input1.value +" "+ Input2.value ;
         Input2.value="";
+        
         const Aux = (Input1.value+Input2.value).split(" ");
         console.log(Aux)
 
