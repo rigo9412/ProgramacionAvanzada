@@ -1,0 +1,19 @@
+#Elementos{
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -200px;
+}
+
+.Linea input{
+    display: inline-block;
+    width:60px;
+    height:60px;
+    border-radius: 15px;
+}
+
+.Resultados input{
+    width:245px;
+    height:60px;
+}
