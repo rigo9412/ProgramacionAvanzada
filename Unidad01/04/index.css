@@ -59,6 +59,7 @@ button:focus{
     justify-content: space-between;
     word-break: break-all;
     font-size: 25px;
+    border-radius: 32px;
     
     
 }
