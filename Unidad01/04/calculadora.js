@@ -1,5 +1,4 @@
 const calc = document.getElementById("body");
-
 const historial = document.getElementById("txt1");
 const valores = document.getElementById("txt2");
 
