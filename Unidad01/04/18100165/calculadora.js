@@ -90,3 +90,20 @@ function borradoTotal() {
     numEspera=0;
     tipoOperacion="no";
 }
+function teclado (elEvento) {
+    evento = elEvento || window.event;
+    k=evento.keyCode;
+    if (k>47 && k<58) { p=k-48;
+        p=String(p)
+        numero(p); 
+        if (k>95 && k<106) { p=k-96; p=String(p); numero(p); } if (k==110 || k==190) {numero(".")} //teclas de coma decimal 
+        if (k==106) {operar('*')} 
+            if (k==107) {operar('+')} 
+                if (k==109) {operar('-')} 
+                if (k==111) {operar('/')} 
+                if (k==32 || k==13) {igualar()} 
+                if (k==46) {borradoTotal()} 
+                if (k==8) {retro()} 
+                if (k==36) {borradoParcial()}
+       }
+    }
