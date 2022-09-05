@@ -9,7 +9,7 @@ tipoOperacion="no";
 numEspera=0;
 numIni=1;
 function numero(numero) {
-    if(numGuardado=="0"||numIni=="1"){
+    if(numGuardado=="0"||numIni==1){
         pantalla.innerHTML=numero;
         numGuardado=numero;   
         if(numero=="."){
@@ -21,21 +21,39 @@ function numero(numero) {
         }
         numIni=0;
     }    
+    else{
+        pantalla.innerHTML=numguardado.String+numero;
+        numGuardado=numero;
+    }
 }
 function operar(operacion) {
+    //cadena.innerHTML=numGuardado;
+    //numGuardado="0";
+    
     igualar() 
-    numEspera=numGuardado; 
+    numEspera=numGuardado;
+    numGuardado="0"; 
+    pantalla.innerHTML=0;
     tipoOperacion=operacion; 
     numIni=0;
 }
 function igualar() {
     if (tipoOperacion=="no") { 
-        pantalla.innerHTML=numeroGuardado; //mostramos el mismo número
+        cadena.innerHTML=numGuardado;
+        pantalla.innerHTML=0;
     }
     else {
         cadenaOperacion=numEspera+tipoOperacion+numGuardado;
         solucion=eval(cadenaOperacion);
         pantalla.innerHTML=solucion;
+        if(cadena.innerHTML==0)
+        {
+            cadena="0";
+        cadena.innerHTML=cadenaOperacion;
+        }
+        else{
+            cadena.innerHTML=cadena.innerHTML+cadenaOperacion;
+        }
         numGuardado=solucion;
         tipoOperacion="no";
         numIni=1;
@@ -84,6 +102,7 @@ function borradoParcial() {
     coma=0;
 }
 function borradoTotal() {
+    cadena.innerHTML=0;
     pantalla.innerHTML=0;
     numGuardado="0";
     coma=0;
@@ -96,14 +115,15 @@ function teclado (elEvento) {
     if (k>47 && k<58) { p=k-48;
         p=String(p)
         numero(p); 
-        if (k>95 && k<106) { p=k-96; p=String(p); numero(p); } if (k==110 || k==190) {numero(".")} //teclas de coma decimal 
-        if (k==106) {operar('*')} 
-            if (k==107) {operar('+')} 
-                if (k==109) {operar('-')} 
-                if (k==111) {operar('/')} 
-                if (k==32 || k==13) {igualar()} 
-                if (k==46) {borradoTotal()} 
-                if (k==8) {retro()} 
-                if (k==36) {borradoParcial()}
-       }
     }
+        if (k>95 && k<106) { p=k-96; p=String(p); numero(p); } if (k==110 || k==190) {numero(".")}
+        if (k==106) {operar('*')} 
+        if (k==107) {operar('+')} 
+        if (k==109) {operar('-')} 
+        if (k==111) {operar('/')} 
+        if (k==32 || k==13) {igualar()} 
+        if (k==46) {borradoTotal()} 
+        if (k==8) {retro()} 
+        if (k==36) {borradoParcial()}
+}
+    
