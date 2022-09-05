@@ -65,18 +65,15 @@ function Limpiar_Borrar(borrar) {
 function Concatenar(num) {
   if (!isNaN(num) || num === ".") {
     Input2.value += num;
+  } else if (num == "±") {
+    MasMenos();
+  } else if (num == "1/x") {
+    Input2.value = 1 / Input2.value;
   } else {
-    if (num == "±") {
-      MasMenos();
-    }
-    if (num == "1/x") {
-      Input2.value = 1 / Input2.value;
-    } else {
-      //Concatena operadores
-      Input1.value = Input2.value + " " + num;
-      //operaciónConcatenada += Input1.value;
-      Input2.value = "";
-    }
+    //Concatena operadores
+    Input1.value = Input2.value + " " + num;
+    //operaciónConcatenada += Input1.value;
+    Input2.value = "";
   }
 }
 
