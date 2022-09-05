@@ -3,10 +3,15 @@ const historial = document.getElementById("txt1");
 const valores = document.getElementById("txt2");
 const buton = document.getElementsByName('numero')
 
+
+// const buton2 = document.getElementsById("his2");
+
 const arregloOperaciones=['+','-','*','/','^','√','%','1/x'];
 const arregloAccion=['Enter','='];
 const borrar=['c','CE'];
-const Cuac =['√'];
+
+const lista =[];
+
 const Sumar = (num1,num2) => num1 + num2
 const Resta = (num1,num2) => num1 - num2
 const Multi = (num1,num2) => num1 * num2
@@ -32,6 +37,33 @@ buton.forEach(function(e){
     })
     
 });
+
+function mostrar(e){
+    
+    var P = e.target.innerText;
+    historial.value = P;
+
+}
+
+function record(){
+
+    var x;
+    var y;
+    const h = document.getElementById("display2");
+    h.innerText = " ";
+    for(x of lista){
+
+        y = document.createElement("p");
+        y.innerText = x; 
+
+        h.appendChild(y);
+
+    }
+
+    y.addEventListener("click",mostrar());
+
+}
+
 
 function Calcular(key){
 
@@ -116,7 +148,8 @@ function Calcular(key){
                 valores.value = Dif(Number(aux[0]))
 
             break;
-                
+
+             
 
         }
 
@@ -130,8 +163,19 @@ function Calcular(key){
         }
 
         
+        lista.push(historial.value + " " + "= " +valores.value);
+        console.log(lista);
+        record();
+
+
+
+        
 
     }
+
+
+
+
 
 }
     
