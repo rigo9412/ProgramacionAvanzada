@@ -1,9 +1,36 @@
+#contenedor{
+    display: flex;
+    margin-right: 25%;
+}
+
 #appCalculator{
     height: 560px;
     width: 300px;
     background-color: #4d4d4d;
     text-align: center;
     margin: 0px auto;
+    margin-right: 120px;
+    
+}
+
+#Titulo{
+    height: 500px;
+    width: 360px;
+    margin-left: -85px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;    
+    text-align: center;
+    background-color: #1759e8;
+}
+
+#Historial{
+    height: 480px;
+    width: 360px;
+    text-align:justify;
+    margin: 0px auto;
+    background-color:  #c1c4c9;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 28px;
 }
 
 #appCalculator form{
