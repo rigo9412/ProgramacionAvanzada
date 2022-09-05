@@ -1,13 +1,24 @@
-const form = document.getElementById('form');
+class Calculadora {
+    sumar(num1, num2) {
+        return num1 + num2;
+    }
 
-form.addEventListener('submit', function(e)){
-    e.preventDefault();
+    restar(num1, num2) {
+        return num1 - num2;
+    }
 
-    var num1 = number(document.getElementById('num1'));
+    dividir(num1, num2) {
+        return num1 / num2;
+    }
 
-});
+    multiplicar(num1, num2) {
+        return num1 * num2;
+    }
 
-const sumar = (num1, num2) => num1 + num2
-const sumar = (num1, num2) => num1 + num2
-const sumar = (num1, num2) => num1 + num2
-const sumar = (num1, num2) => num1 + num2
+   raiz(num2) {
+   
+
+    return Math.sqrt(num2);
+}
+
+} 
