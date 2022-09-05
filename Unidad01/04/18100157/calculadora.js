@@ -4,7 +4,7 @@ const Input2 = document.getElementById("num2");
 const Nums = document.getElementsByName("nume");
 const Operadores=['+','-','X','/','%','^','√','1/x'];
 const TE=['Enter','='];
-const Borrar=['C','c'];
+const Borrar=['C','c','B','CE','+/-'];
 const historial=[]
 const sumar =(numero1,numero2) => numero1 + numero2
 const multiplicacion =(numero1,numero2) => numero1 * numero2
@@ -38,13 +38,30 @@ function Calcular(key){
         if(key=='√'){
             Input1.value=key+" "+ Input2.value;
             Input2.value="";
+        }else if(key=='1/x'){
+            console.log('Entra')
+            Input1.value="1 / "+Input2.value;
+            Input2.value="";
         }else{
             Input1.value=Input2.value+" "+ key;
             Input2.value="";
         }
     }else if (Borrar.includes(key)) {
-        Input1.value="";
-        Input2.value="";
+        if (key=='C'||key=='c') {
+            Input1.value="";
+        }
+        if (key=='CE') {
+            Input1.value="";
+            Input2.value="";
+        }
+        if (key=='B') {
+            Input2.value=Input2.value.substring(0,Input2.value.length-1)
+        }
+        if (key=='+/-') {
+            Input2.value=Input2.value*-1
+        }
+        /*Input1.value="";
+        Input2.value="";*/
     }
     else if(TE.includes(key)){
         const Aux = (Input1.value+" "+Input2.value).split(" ");
