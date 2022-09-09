@@ -12,6 +12,7 @@ const exponente =(numero1,numero2) => Math.pow(numero1,numero2)
 const resta =(numero1,numero2) => numero1 - numero2
 const dividir = (numero1,numero2) => numero1 / numero2
 const raiz = (numero1) => Math.sqrt(numero1);
+const porcentaje = (numero2) => numero2/100
 //const porcentaje = (numero1,numero2) => 
 
 body.addEventListener('keypress',(evento) => {
@@ -42,6 +43,9 @@ function Calcular(key){
             console.log('Entra')
             Input1.value="1 / "+Input2.value;
             Input2.value="";
+        }else if(key=='%'){
+            var Porc = Input2.value
+            Input2.value=porcentaje(Number(Porc))
         }else{
             Input1.value=Input2.value+" "+ key;
             Input2.value="";
@@ -49,10 +53,16 @@ function Calcular(key){
     }else if (Borrar.includes(key)) {
         if (key=='C'||key=='c') {
             Input1.value="";
+            Input2.value="";
         }
         if (key=='CE') {
-            Input1.value="";
-            Input2.value="";
+            var A=Input1.value
+            if (A[A.length-1] != "="){
+                Input2.value="";
+            }else{
+                Input1.value="";
+                Input2.value="";
+            } 
         }
         if (key=='B') {
             Input2.value=Input2.value.substring(0,Input2.value.length-1)
@@ -60,8 +70,6 @@ function Calcular(key){
         if (key=='+/-') {
             Input2.value=Input2.value*-1
         }
-        /*Input1.value="";
-        Input2.value="";*/
     }
     else if(TE.includes(key)){
         const Aux = (Input1.value+" "+Input2.value).split(" ");
@@ -104,15 +112,7 @@ function Calcular(key){
     }
 }
 
-function enviarHistorial(){
-    console.log(Ope)
-    console.log(Ope.substring(0,length-1))
-    console.log(Ope.length)
-    Input1.value = Ope.substring(0,length-2)
-    Input2.value = Ope[Ope.length-1]
-}
-
-function mostrarHistorial() {e.tag.tagname
+function mostrarHistorial() {//e.tag.tagname
     let History = document.getElementById("History")
     History.innerHTML = ''
 
@@ -121,9 +121,15 @@ function mostrarHistorial() {e.tag.tagname
         datoHistorial.setAttribute('class','H_parrafo')
         datoHistorial.innerText = dato
         Ope = datoHistorial.textContent
-        datoHistorial.addEventListener('click',(e) => {
-            enviarHistorial(Ope)
-        })
+        //datoHistorial.addEventListener('click',enviarHistorial)
         History.appendChild(datoHistorial)
+        datoHistorial.addEventListener('click',enviarHistorial)
     }
+}
+
+function enviarHistorial(e){
+    var Res = e.target.innerText.split("=")
+    Input1.value = Res[0]+" = "
+    Input2.value = Res[1]
+    console.log(Res)
 }
