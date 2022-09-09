@@ -6,6 +6,8 @@ contenedor.style.backgroundColor = getRGBA();
 contenedor.onclick = function () {
     contenedor.style.backgroundColor = getRGBA();
 }
+
+//mostrar el nombre del color y cantidad (0-255)
 contenedor.onwheel = function (e) {
     console.log(e)
     var alpha = e.deltaY * -0.01
@@ -31,19 +33,37 @@ function getRGBA(){
     contenedor.innerHTML = `Red = ${red} Blue = ${blue} Green = ${green}`
     return `rgba(${red},${green},${blue},1)`
 }
-/*const color = document.getElementById("cont");
+//sliders
+
+const color = document.getElementById("cont");
 const rangeRed = document.getElementById("red");
 const rangeBlue = document.getElementById("blue");
 const rangeGreen = document.getElementById("green");
 const rangeAlpha = document.getElementById("alpha");
 
-//mostrar el nombre del color y cantidad (0-255)
-
-let rgba = [(randon (0, 255)), (randon (0, 255)), (randon (0, 255)), (randon (0, 255))];
+let rgba = [(randon (0, 255)), (randon (0, 255)), (randon (0, 255)), (randon (0, 100)*0.01)];
 rangeAlpha.value = rgba[3];
 rangeBlue.value = rgba[2];
 rangeGreen.value = rgba[1];
 rangeRed.value = rgba[0];
+
+function valores(){
+    rgba[0]=random(0,255);
+    rgba[1]=random(0,255);
+    rgba[2]=random(0,255);
+    rgba[3]=(random(0,100)*0.01);
+    rangeRed.value=gba[0];
+    rangeRed.value=gba[1];
+    rangeRed.value=gba[2];
+    rangeRed.value=gba[3]*100;
+    cambiaColor()
+}
+
+/*const update = (index.color){
+    rgba[index] = color;
+    cambiaColor();
+}*/
+
 
 
 rangeBlue.onchange = function(c){
@@ -65,5 +85,3 @@ rangeAlpha.onchange = function(c){
 function cambiaColor(){
     color.style.background = "rgba($rgba[0], $rgba[1], $rgba[2], $rgba[3])";
 }
-
-*/
