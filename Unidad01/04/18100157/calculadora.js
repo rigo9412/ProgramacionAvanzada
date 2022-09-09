@@ -104,14 +104,26 @@ function Calcular(key){
     }
 }
 
-function mostrarHistorial() {
+function enviarHistorial(){
+    console.log(Ope)
+    console.log(Ope.substring(0,length-1))
+    console.log(Ope.length)
+    Input1.value = Ope.substring(0,length-2)
+    Input2.value = Ope[Ope.length-1]
+}
+
+function mostrarHistorial() {e.tag.tagname
     let History = document.getElementById("History")
     History.innerHTML = ''
 
     for (const dato of historial) {
         let datoHistorial = document.createElement('p');
-        datoHistorial.setAttribute('id','H_parrafo')
+        datoHistorial.setAttribute('class','H_parrafo')
         datoHistorial.innerText = dato
+        Ope = datoHistorial.textContent
+        datoHistorial.addEventListener('click',(e) => {
+            enviarHistorial(Ope)
+        })
         History.appendChild(datoHistorial)
     }
 }
