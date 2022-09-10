@@ -48,7 +48,6 @@ botonEsp.forEach(function (boton1) {
 function Limpiar_Borrar(borrar) {
   switch (borrar) {
     case "C":
-      Input1.value = "";
       Input2.value = "";
       break;
     case "CE":
@@ -68,7 +67,11 @@ function Concatenar(num) {
   } else if (num == "±") {
     MasMenos();
   } else if (num == "1/x") {
+    //Aquí se calcula el resultado
+    Input1.value = "1 / " + Input2.value + " = ";
     Input2.value = 1 / Input2.value;
+    Insertar();
+    Mostrar();
   } else {
     //Concatena operadores
     Input1.value = Input2.value + " " + num;
