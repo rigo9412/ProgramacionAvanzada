@@ -4,6 +4,7 @@ const valores = document.getElementById("txt2");
 const buton = document.getElementsByName('numero')
 
 
+
 // const buton2 = document.getElementsById("his2");
 
 const arregloOperaciones=['+','-','*','/','^','√','%','1/x'];
@@ -38,31 +39,40 @@ buton.forEach(function(e){
     
 });
 
-function mostrar(e){
-    
-    var P = e.target.innerText;
-    historial.value = P;
 
-}
 
 function record(){
 
-    var x;
-    var y;
     const h = document.getElementById("display2");
-    h.innerText = " ";
+    var x = 0;
+    var y = "";
+    h.innerHTML = " ";
+
     for(x of lista){
-
         y = document.createElement("p");
-        y.innerText = x; 
-
+        y.innerText = x;
         h.appendChild(y);
-
+        
     }
 
-    y.addEventListener("click",mostrar());
+    y.addEventListener('click', (function(e) {
+
+        let var1 = e.target.innerText;
+        Op(var1);
+
+    }))
 
 }
+
+function Op(var1) {
+    const z = var1.split("=");
+    historial.value = z[0] + "=";
+    valores.value = z[z.length -1];
+}
+
+
+
+
 
 
 function Calcular(key){
@@ -143,9 +153,13 @@ function Calcular(key){
             break;
 
             case '1/x' :
+            
             Dif(Number(aux[0]))
                 
                 valores.value = Dif(Number(aux[0]))
+
+                historial.value = aux[1] + " " + aux[0] + " ";
+                
 
             break;
 
@@ -155,16 +169,18 @@ function Calcular(key){
 
         if(aux[1] == '√'){
             
+            
+
             var R = Raiz(Number(aux[0]))
             valores.value = R;
 
-            historial.value = aux[1] + " " + aux[0] + "=";
+            historial.value = aux[1] + " " + aux[0] + " ";
 
         }
 
         
         lista.push(historial.value + " " + "= " +valores.value);
-        console.log(lista);
+        
         record();
 
 
