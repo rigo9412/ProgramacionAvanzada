@@ -1,0 +1,135 @@
+const body = document.getElementById("body");
+const Input1 = document.getElementById("num1");
+const Input2 = document.getElementById("num2");
+const Nums = document.getElementsByName("nume");
+const Operadores=['+','-','X','/','%','^','√','1/x'];
+const TE=['Enter','='];
+const Borrar=['C','c','B','CE','+/-'];
+const historial=[]
+const sumar =(numero1,numero2) => numero1 + numero2
+const multiplicacion =(numero1,numero2) => numero1 * numero2
+const exponente =(numero1,numero2) => Math.pow(numero1,numero2)
+const resta =(numero1,numero2) => numero1 - numero2
+const dividir = (numero1,numero2) => numero1 / numero2
+const raiz = (numero1) => Math.sqrt(numero1);
+const porcentaje = (numero2) => numero2/100
+//const porcentaje = (numero1,numero2) => 
+
+body.addEventListener('keypress',(evento) => {
+    Calcular(evento.key);
+})
+
+Nums.forEach(function(boton){
+    boton.addEventListener('click',(evento) =>{
+        Calcular(boton.value)
+    })
+}
+)
+
+function mostrar(operacion){
+    //Input1=operacion.substring()
+}
+
+function Calcular(key){
+    if (!isNaN(key) || key == '.') {
+        Input2.value+=key;
+    }
+    
+    else if(Operadores.includes(key)){
+        if(key=='√'){
+            Input1.value=key+" "+ Input2.value;
+            Input2.value="";
+        }else if(key=='1/x'){
+            console.log('Entra')
+            Input1.value="1 / "+Input2.value;
+            Input2.value="";
+        }else if(key=='%'){
+            var Porc = Input2.value
+            Input2.value=porcentaje(Number(Porc))
+        }else{
+            Input1.value=Input2.value+" "+ key;
+            Input2.value="";
+        }
+    }else if (Borrar.includes(key)) {
+        if (key=='C'||key=='c') {
+            Input1.value="";
+            Input2.value="";
+        }
+        if (key=='CE') {
+            var A=Input1.value
+            if (A[A.length-1] != "="){
+                Input2.value="";
+            }else{
+                Input1.value="";
+                Input2.value="";
+            } 
+        }
+        if (key=='B') {
+            Input2.value=Input2.value.substring(0,Input2.value.length-1)
+        }
+        if (key=='+/-') {
+            Input2.value=Input2.value*-1
+        }
+    }
+    else if(TE.includes(key)){
+        const Aux = (Input1.value+" "+Input2.value).split(" ");
+        switch(Aux[1]){
+            case '+':
+                sumar(Number(Aux[0]),Number(Aux[2]))
+                Input1.value=Input1.value+" "+Input2.value + ' =';
+                Input2.value=sumar(Number(Aux[0]),Number(Aux[2]));
+            break;
+            case '-':
+                resta(Number(Aux[0]),Number(Aux[2]))
+                Input1.value=Input1.value+" "+Input2.value + ' =';
+                Input2.value=resta(Number(Aux[0]),Number(Aux[2]));
+            break;
+            case 'X':
+                multiplicacion(Number(Aux[0]),Number(Aux[2]))
+                Input1.value=Input1.value+" "+Input2.value + ' =';
+                Input2.value=multiplicacion(Number(Aux[0]),Number(Aux[2]));
+            break;
+            case '/':
+                dividir(Number(Aux[0]),Number(Aux[2]))
+                Input1.value=Input1.value+" "+Input2.value + ' =';
+                Input2.value=dividir(Number(Aux[0]),Number(Aux[2]));
+            break;
+            case '^':
+                exponente(Number(Aux[0]),Number(Aux[2]))
+                Input1.value=Input1.value+" "+Input2.value + ' =';
+                Input2.value=exponente(Number(Aux[0]),Number(Aux[2]));
+            break;
+        }
+        if(Aux[0]=='√'){
+            console.log('raiz')
+            raiz(Number(Aux[1]))
+                Input1.value=Input1.value + '=';
+                Input2.value=raiz(Number(Aux[1]));
+        }
+        historial[historial.length] = Input1.value+" "+Input2.value
+        console.log(historial)
+        mostrarHistorial();
+    }
+}
+
+function mostrarHistorial() {//e.tag.tagname
+    let History = document.getElementById("History")
+    History.innerHTML = ''
+
+    for (const dato of historial) {
+        let datoHistorial = document.createElement('p');
+        datoHistorial.setAttribute('class','H_parrafo')
+        datoHistorial.innerText = dato
+        Ope = datoHistorial.textContent
+        //datoHistorial.addEventListener('click',enviarHistorial)
+        History.appendChild(datoHistorial)
+        datoHistorial.addEventListener('click',enviarHistorial)
+    }
+}
+
+function enviarHistorial(e){
+    var Res = e.target.innerText.split("=")
+    Input1.value = Res[0]+" = "
+    Input2.value = Res[1]
+    console.log(Res)
+}
