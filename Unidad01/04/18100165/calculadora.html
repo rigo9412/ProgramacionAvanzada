@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="stilo.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="calculadora.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="calculadora">
+        <form action="#" name="calculadora" id="calculadora">
+            <p id="textoCadena">0</p>
+            <p id="textoPantalla">0</p>
+            <p>
+                <input type="button" class="largo" value="Retr" onclick="retro()" />
+                <input type="button" class="largo" value="CE" onclick="borradoParcial()" />
+                <input type="button" class="largo" value="C" onclick="borradoTotal()" />
+            </p>
+            <p>
+                <input type="button" value="7" onclick="numero('7')" />
+                <input type="button" value="8" onclick="numero('8')" />
+                <input type="button" value="9" onclick="numero('9')" />
+                <input type="button" value="/" onclick="operar('/')" />
+                <input type="button" value="Raiz" onclick="raizc()" />
+            </p>
+            <p>
+                <input type="button" value="4" onclick="numero('4')" />
+                <input type="button" value="5" onclick="numero('5')" />
+                <input type="button" value="6" onclick="numero('6')" />
+                <input type="button" value="*" onclick="operar('*')" />
+                <input type="button" value="%" onclick="porcent()" />
+            </p>
+            <p>
+                <input type="button" value="1" onclick="numero('1')" />
+                <input type="button" value="2" onclick="numero('2')" />
+                <input type="button" value="3" onclick="numero('3')" />
+                <input type="button" value="-" onclick="operar('-')" />
+                <input type="button" value="1/x" onclick="inve()" />
+            </p>
+            <p>
+                <input type="button" value="0" onclick="numero('0')" />
+                <input type="button" value="+/-" onclick="opuest()" />
+                <input type="button" value="." onclick="numero('.')" />
+                <input type="button" value="+" onclick="operar('+')" />
+                <input type="button" value="=" onclick="igualar()" />
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
