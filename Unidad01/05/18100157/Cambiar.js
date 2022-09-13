@@ -1,6 +1,6 @@
 let contenedor = document.getElementById("contenedor")
-/*contenedor.style.width=window.innerWidth+'px';
-contenedor.style.height=window.innerHeight+'px';*/
+contenedor.style.width=window.innerWidth+'px';
+contenedor.style.height=window.innerHeight+'px';
 const ranred =document.getElementById("red")
 const rangreen =document.getElementById("green")
 const ranblue =document.getElementById("blue")
@@ -10,14 +10,20 @@ const sgreen =document.getElementById("Sgreen")
 const sblue =document.getElementById("Sblue")
 const salpha =document.getElementById("Salpha")
 const TablaColor = document.getElementById("color")
+const inHexa = document.getElementById("inHexa")
+var ExpRegColHexa=/([A-F/a-f/0-9])$/;
 var Hr
 var Hg
 var Hb
-
+var r
+var g
+var b
+var a
 let rgba = [random(0,255),random(0,255),random(0,255),1/*random(0,100)*0.01*/]
 valores(random(0,255),random(0,255),random(0,255),1/*random(0,100)*0.01*/)
 
 contenedor.addEventListener('click', () => valores(random(0,255),random(0,255),random(0,255),1/*random(0,100)*0.01*/))
+
 
 function valores(r,g,b,a){
     rgba[0] = r;
@@ -36,34 +42,77 @@ function valores(r,g,b,a){
     Hg=decToHex(g)
     Hb=decToHex(b)
     Hexval='#'+Hr+Hg+Hb
-    console.log(Hexval)
     TablaColor.value=Hexval
+    inHexa.value=Hexval
     cambiaarColor()
 }
 
 function decToHex(h){
     var Hex = h.toString(16)
-    if (Hex == 1) {
+    console.log(Hex)
+    if (Hex.length == 1) {
         Hex="0"+Hex;
     }
     return Hex
-    //return TablaColor.value=hexa
 }
 
 const update = (index,color,span)=>{
     span.innerHTML = color
+    Hexa = decToHex(parseInt(color))
     rgba[index]=color
+    switch (index) {
+        case 0:
+            Hr = Hexa
+            Hexval='#'+Hr+Hg+Hb
+            TablaColor.value=Hexval
+            inHexa.value=Hexval
+            break;
+        case 1:
+            Hg = Hexa
+            Hexval='#'+Hr+Hg+Hb
+            TablaColor.value=Hexval
+            inHexa.value=Hexval
+            break;
+        case 2:
+            Hb = Hexa
+            Hexval='#'+Hr+Hg+Hb
+            TablaColor.value=Hexval
+            inHexa.value=Hexval
+        break;
+        default:
+            break;
+    }
     cambiaarColor()
 }
 
 TablaColor.oninput = (e)=>{
     var aux = TablaColor.value
-    var r = parseInt(aux.substring(1,3),16)
-    var g = parseInt(aux.substring(3,5),16)
-    var b = parseInt(aux.substring(5,7),16)
-    var a = 1
+    r = parseInt(aux.substring(1,3),16)
+    g = parseInt(aux.substring(3,5),16)
+    b = parseInt(aux.substring(5,7),16)
+    a = 1
     valores(r,g,b,a)
 }
+
+inHexa.addEventListener("keyup",(e) =>{
+    cadeHexa = inHexa.value
+    if (cadeHexa.match(ExpRegColHexa)!=null){
+        console.log(cadeHexa)
+        if (cadeHexa.length==6){
+            r = parseInt(cadeHexa.substring(0,2),16)
+            g = parseInt(cadeHexa.substring(2,4),16)
+            b = parseInt(cadeHexa.substring(4,6),16)
+            a = 1
+            valores(r,g,b,a)
+        }else if(cadeHexa.length>6){
+            inHexa.value=""
+            window.alert("El valor Hexadecimal solo acepta 6 digitos")
+        }
+    }else{
+        inHexa.value=""
+        window.alert("Formato Invalido")
+    }
+})
 
 rangreen.oninput = (e)=>update(1,e.target.value,sgreen)
 ranred.oninput = (e)=>update(0,e.target.value,sred)
