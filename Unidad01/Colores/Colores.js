@@ -26,6 +26,7 @@ function valores(r,g,b,a){
     rgba[1] = g;
     rgba[2] = b;
     rgba[3] = a;
+
     ranred.value=rgba[0];
     rangreen.value=rgba[1];
     ranblue.value=rgba[2];
@@ -35,28 +36,34 @@ function valores(r,g,b,a){
     Sblue.innerHTML=rgba[2]
     Salpha.innerHTML=rgba[3]
 
-    rgbahex(r,g,b);
-    Slice(r,g,b);
-
-    cambiarColor()
-
-   
     
+    var H = rgbahex(r,g,b);
+
+    TablaColor.value = H;
+    
+    cambiarColor()
+    nombre.value=TablaColor.value;
 }
+
+//-----------------------------------
 
 function rgbahex(r,g,b){
 
     var resul = "#" + colorhex(r) + colorhex(g) + colorhex(b);
 
-    return TablaColor.value = resul;
+    return resul;
 
 }
 function colorhex(colorr){
+
     var hex =  colorr.toString(16);
-    return hex.length == 1 ? + hex : hex;
+    var hex2 = hex.length == 1 ? 0 + hex : hex
+   
+    return hex2;
+    
 }
 
-
+//-----------------------------------
 
 const update = (index,color,span)=>{
     span.innerHTML = color
@@ -73,35 +80,21 @@ TablaColor.oninput = (e)=>{
     valores(r,g,b,a)
 }
 
-// rangreen.oninput = (e)=>update(1,e.target.value,Sgreen)
-// ranred.oninput = (e)=>update(0,e.target.value,Sred)
-// ranblue.oninput = (e)=>update(2,e.target.value,Sblue)
-// ranalpha.oninput = (e)=>update(3,(e.target.value*0.01),Salpha)
+rangreen.oninput = (e)=>update(1,e.target.value,Sgreen)
+ranred.oninput = (e)=>update(0,e.target.value,Sred)
+ranblue.oninput = (e)=>update(2,e.target.value,Sblue)
+ranalpha.oninput = (e)=>update(3,(e.target.value*0.01),Salpha)
 
-// rangreen.onchange = (e)=>update(1,e.target.value,Sgreen)
-// ranred.onchange = (e)=>update(0,e.target.value,Sred)
-// ranblue.onchange = (e)=>update(2,e.target.value,Sblue)
-// ranalpha.onchange = (e)=>update(3,(e.target.value*0.01),Salpha)
-
-function Slice(r,g,b,a) {
-
-    rangreen.oninput = (e)=>update(1,e.target.value,g)
-    ranred.oninput = (e)=>update(0,e.target.value,r)
-    ranblue.oninput = (e)=>update(2,e.target.value,b)
-    ranalpha.oninput = (e)=>update(3,(e.target.value*0.01),a)
-
-    rangreen.onchange = (e)=>update(1,e.target.value,g)
-    ranred.onchange = (e)=>update(0,e.target.value,r)
-    ranblue.onchange = (e)=>update(2,e.target.value,b)
-    ranalpha.onchange = (e)=>update(3,(e.target.value*0.01),a)
-
-}
-
-
+rangreen.onchange = (e)=>update(1,e.target.value,Sgreen)
+ranred.onchange = (e)=>update(0,e.target.value,Sred)
+ranblue.onchange = (e)=>update(2,e.target.value,Sblue)
+ranalpha.onchange = (e)=>update(3,(e.target.value*0.01),Salpha)
 
 
 function cambiarColor(){
+
     body.style.backgroundColor = `rgba(${rgba[0]},${rgba[1]},${rgba[2]},${rgba[3]})`
+
    
 }
 
