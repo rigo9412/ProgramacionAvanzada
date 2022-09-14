@@ -62,6 +62,7 @@ function init(){
         operandoa = resultado.textContent;
         operacion = "-";
         limpiar();
+
     }
     multiplicacion.onclick = function(e){
         operandoa = resultado.textContent;
@@ -72,10 +73,10 @@ function init(){
         operandoa = resultado.textContent;
         operacion = "/";
         limpiar();
+        
     }
     igual.onclick = function(e){
         operandob = resultado.textContent;
-        resolver();
     }
 
 
@@ -104,7 +105,7 @@ function init(){
             res = parseFloat(operandoa) / parseFloat(operandob);
             break;
         }
-        resetear();
+        //resetear();
         resultado.textContent = res;
       }
 
