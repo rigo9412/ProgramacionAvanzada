@@ -4,7 +4,7 @@
 Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
 
  
-  
+  //juan
 
 ## Puntaje de Evaluación
 
@@ -13,7 +13,6 @@ Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
 | Examen | 40 % |
 | Ejercios | 60 %|
 | Proyecto Personal* | 80 % (solo en la unidad final) |
-
 
 
 ## Temas Unidad 1 Introducción lado Cliente
