@@ -1,0 +1,39 @@
+#Elementos{
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -200px;
+    border: 5px solid darkblue;
+    border-radius: 15px;
+}
+#num1{
+    border-radius: 15px;
+}
+#num2{
+    border-radius: 15px;
+}
+.container{
+    position: absolute;
+    left: 5%;
+    margin-right: 15px;
+    top: 100%;
+    margin-top: -500px;
+}
+
+.Linea input{
+    display: inline-block;
+    width:60px;
+    height:60px;
+    border-radius: 15px;
+}
+
+.Resultados input{
+    width:245px;
+    height:60px;
+}
+
+.button{
+    border-radius: 100%;
+}

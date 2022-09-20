@@ -4,7 +4,7 @@
 Indicaciones e instrucciones de la clase Agosto - Diciembre 2022
 
  
-  
+  //juan
 
 ## Puntaje de Evaluación
 
