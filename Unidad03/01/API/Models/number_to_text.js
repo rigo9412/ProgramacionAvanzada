@@ -80,7 +80,6 @@ const numberToText = (numero) => {
     var result = decenas[d];
     if (d == 1) result = `${result}${unidades[u]}`;
     else if (u > 0) result = `${result} y ${unidades[u]}`;
-
     return result;
   } else if (numero <= 1000) {
     var result = "";
