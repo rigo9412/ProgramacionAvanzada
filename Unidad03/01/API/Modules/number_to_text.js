@@ -109,4 +109,5 @@ const numberToText = (numero) => {
 
 module.exports = {
   numberToText,
+  
 };
