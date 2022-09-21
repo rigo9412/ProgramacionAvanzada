@@ -7,16 +7,16 @@ fetch('http://localhost:3000/hola')
     .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
 
 fetch('http://localhost:3000/textNumber',{
-        method: 'POST',
-        body: JSON.stringify({number:'14'}) , 
-        headers: {
-            'Content-Type': 'application/json',
-            //"Access-Control-Allow-Origin" : 'http://localhost:5000'
-        },
-    })
-    .then(response => response.json())  // convertir a json
-    .then(json => console.log(json))    //imprimir los datos en la consola
-    .catch(err => console.log('Solicitud fallida', err)); // Capturar errores    
+    method: 'POST',
+    body: JSON.stringify({number:'14'}) , 
+    headers: {
+        'Content-Type': 'application/json',
+        //"Access-Control-Allow-Origin" : 'http://localhost:5000'
+    },
+})
+.then(response => response.json())  // convertir a json
+.then(json => console.log(json))    //imprimir los datos en la consola
+.catch(err => console.log('Solicitud fallida', err)); // Capturar errores    
 
 // fetch('http://localhost:3000/textNumber',
 // {

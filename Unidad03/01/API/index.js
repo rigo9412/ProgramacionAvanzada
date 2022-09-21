@@ -12,15 +12,15 @@ const port = 3000
 
 //app.use(cors(corsOptions))
 app.use(cors())
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.get('/hola',(req,res) => {
   res.send({
     "response" : "hola"
   });
 })
+
 app.post('/textNumber', (req, res) => {
     var {number} = req.body
     console.log(number);
