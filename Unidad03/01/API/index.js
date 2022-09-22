@@ -34,6 +34,19 @@ app.post('/textNumber', (req, res) => {
     });
   })
 
+  app.post('/textDate', (req, res) => {
+    var {date} = req.body
+    console.log(date);
+    if(date == null){
+      return res.status(500).send({
+        "response":"FECHA INVALIDA"
+      })
+    }
+    res.send({
+      "response": numberParser.dateToText(date)
+    });
+  })
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
