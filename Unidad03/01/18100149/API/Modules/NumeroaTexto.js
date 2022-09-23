@@ -103,6 +103,54 @@ const fechaTexto = (fecha3) => {
   }`;
 };
 
+const SepararFecha = (d) => {
+  let res3 = d.split("-");
+  let res4 = res3[2].split("T");
+  res3[2] = res4[0];
+  res3.push(res4[1].split(":"));
+  return res3.join(",");
+};
+
+const CalcularTiempoTranscurrido = (fechaActual, fechaRec) => {
+  var ArregloTiempo = [];
+  let aux1 = fechaActual.split(",");
+  let aux2 = fechaRec.split(",");
+  ArregloTiempo[0] = (aux1[0] - aux2[0]) * 1440;
+  ArregloTiempo[1] = (aux1[1] - aux2[1]) * 43800;
+  ArregloTiempo[2] = (aux1[2] - aux2[2]) * 525600;
+  ArregloTiempo[3] = (aux1[3] - aux2[3]) * 60;
+  ArregloTiempo[4] = aux1[4] - aux2[4];
+
+  let TiempoMinutos =
+    ArregloTiempo[0] +
+    ArregloTiempo[1] +
+    ArregloTiempo[2] +
+    ArregloTiempo[3] +
+    ArregloTiempo[4];
+
+  if (TiempoMinutos < 0) {
+    let cadena = `Dentro de ${(TiempoMinutos / 60) * -1} horas`;
+    return cadena;
+  } else {
+    let cadena1 = `Hace ${(TiempoMinutos / 60) * -1} horas`;
+    console.log(cadena1);
+    return cadena1;
+  }
+};
+
+const ConvertirFecha_Minutos = (fecha5) => {
+  let hoy = new Date();
+  let fecha4 = `${hoy.getFullYear()}-${
+    hoy.getMonth() + 1
+  }-${hoy.getDate()}T${hoy.getHours()}:${hoy.getMinutes()}`;
+
+  let fechaSeparada = SepararFecha(fecha4);
+  console.log(fechaSeparada);
+  let fechaSeparada1 = SepararFecha(fecha5);
+  let resultado = CalcularTiempoTranscurrido(fechaSeparada, fechaSeparada1);
+  return resultado;
+};
+
 const getCentenas = (c, d) => {
   return c == 1 && d == 0 ? especiales[c * 100] : centenas[c];
 };
@@ -182,4 +230,5 @@ const numberToText = (numero) => {
 module.exports = {
   numberToText,
   fechaTexto,
+  ConvertirFecha_Minutos,
 };

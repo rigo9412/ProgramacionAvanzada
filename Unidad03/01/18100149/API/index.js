@@ -39,11 +39,24 @@ app.post("/textDate", (req, res) => {
   console.log(date);
   if (date == null) {
     return res.status(500).send({
-      response: "NUMERO INVALIDO",
+      response: "FECHA INVALIDA",
     });
   }
   res.send({
     response: numberParser.fechaTexto(date),
+  });
+});
+
+app.post("/calcTime", (req, res) => {
+  var { time } = req.body;
+  console.log(time);
+  if (time == null) {
+    return res.status(500).send({
+      response: "NUMERO INVALIDO",
+    });
+  }
+  res.send({
+    response: numberParser.ConvertirFecha_Minutos(time),
   });
 });
 
