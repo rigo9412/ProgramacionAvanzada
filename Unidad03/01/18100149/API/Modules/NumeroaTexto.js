@@ -1,74 +1,74 @@
 const unidades = {
   0: "",
-  1: "UNO",
-  2: "DOS",
-  3: "TRES",
-  4: "CUATRO",
-  5: "CINCO",
-  6: "SEIS",
-  7: "SIETE",
-  8: "OCHO",
-  9: "NUEVE",
-  10: "DIEZ",
-  11: "ONCE",
-  12: "DOCE",
-  13: "TRECE",
-  14: "CATORCE",
-  15: "QUINCE",
-  16: "DIECISEIS",
-  17: "DIECISIETE",
-  18: "DIECIOCHO",
-  19: "DIECINUEVE",
-  20: "VEINTE",
+  1: "uno",
+  2: "dos",
+  3: "tres",
+  4: "cuatro",
+  5: "cinco",
+  6: "seis",
+  7: "siete",
+  8: "ocho",
+  9: "nueve",
+  10: "diez",
+  11: "once",
+  12: "doce",
+  13: "trece",
+  14: "catorce",
+  15: "quince",
+  16: "dieciseis",
+  17: "diecisiete",
+  18: "dieciocho",
+  19: "diecinueve",
+  20: "veinte",
 };
 const decenas = {
-  2: "VEINTI",
-  3: "TREINTA",
-  4: "CUARENTA",
-  5: "CICUENTA",
-  6: "SESENTA",
-  7: "SETENTA",
-  8: "OCHOCHETA",
-  9: "NOVENTA",
+  2: "veinti",
+  3: "treinta",
+  4: "cuarenta",
+  5: "cincuenta",
+  6: "sesenta",
+  7: "setenta",
+  8: "ochenta",
+  9: "noventa",
 };
 const centenas = {
   0: "",
-  1: "CIENTO",
-  2: "DOCIENTOS",
-  3: "TRECIENTOS",
-  4: "CUATROCIENTOS",
-  5: "QUINIENTOS",
-  6: "SEISCIENTOS",
-  7: "SETECIENTOS",
-  8: "OCHOCIENTOS",
-  9: "NOVECIENTOS",
+  1: "ciento",
+  2: "doscientos",
+  3: "trescientos",
+  4: "cuatrocientos",
+  5: "quinientos",
+  6: "seiscientos",
+  7: "setecientos",
+  8: "ochocientos",
+  9: "novecientos",
 };
 const miles = {
-  1: "MIL",
-  2: "DOS MIL",
-  3: "TRES MIL",
-  4: "CUATRO MIL",
-  5: "CINCO MIL",
+  1: "mil",
+  2: "dos mil",
+  3: "tres mil",
+  4: "cuatro mil",
+  5: "cinco mil",
 };
 const especiales = {
-  100: "CIEN",
-  20: "VEINTE",
+  100: "cien",
+  20: "veinte",
   //"10": "DIECI",
 };
 
 const meses = {
-  0: "Enero",
-  1: "Febrero",
-  2: "Marzo",
-  3: "Abril",
-  4: "Mayo",
-  5: "Junio",
-  6: "Julio",
-  7: "Agosto",
-  8: "Septiembre",
-  9: "Octubre",
-  10: "Noviembre",
-  11: "Diciembre",
+  0: "enero",
+  1: "febrero",
+  2: "marzo",
+  3: "abril",
+  4: "mayo",
+  5: "junio",
+  6: "julio",
+  7: "agosto",
+  8: "septiembre",
+  9: "octubre",
+  10: "noviembre",
+  11: "diciembre",
 };
 
 const dias = {
@@ -82,73 +82,26 @@ const dias = {
 };
 
 const fecha = (fecha2) => {
-  //2022-09-22T11:12 formato
   let res = fecha2.split("-");
   let res2 = res[2].split("T");
 
   res[2] = res2[0];
   res.push(res2[1].split(":"));
-  console.log(res.join(","));
-  // return new Date(res[0], res[1], res[2], res[3], res[4]);
   return new Date(res[0], res[1], res[2], res[3][0], res[3][1]);
 };
 
 const fechaTexto = (fecha3) => {
   let f = fecha(fecha3);
-  console.log(f);
-  return `${dias[f.getDay()]},${numberToText(f.getDate())} de ${
-    meses[f.getMonth()]
+  return `${dias[f.getDay()]} ${numberToText(f.getDate())} de ${
+    meses[f.getMonth() - 1]
   } de ${numberToText(f.getFullYear())} a las ${numberToText(f.getHours())} ${
     f.getMinutes() > 0 ? numberToText(f.getMinutes()) : " en punto"
   }`;
 };
 
-const SepararFecha = (d) => {
-  let res3 = d.split("-");
-  let res4 = res3[2].split("T");
-  res3[2] = res4[0];
-  res3.push(res4[1].split(":"));
-  return res3.join(",");
-};
-
-const CalcularTiempoTranscurrido = (fechaActual, fechaRec) => {
-  var ArregloTiempo = [];
-  let aux1 = fechaActual.split(",");
-  let aux2 = fechaRec.split(",");
-  ArregloTiempo[0] = (aux1[0] - aux2[0]) * 1440;
-  ArregloTiempo[1] = (aux1[1] - aux2[1]) * 43800;
-  ArregloTiempo[2] = (aux1[2] - aux2[2]) * 525600;
-  ArregloTiempo[3] = (aux1[3] - aux2[3]) * 60;
-  ArregloTiempo[4] = aux1[4] - aux2[4];
-
-  let TiempoMinutos =
-    ArregloTiempo[0] +
-    ArregloTiempo[1] +
-    ArregloTiempo[2] +
-    ArregloTiempo[3] +
-    ArregloTiempo[4];
-
-  if (TiempoMinutos < 0) {
-    let cadena = `Dentro de ${(TiempoMinutos / 60) * -1} horas`;
-    return cadena;
-  } else {
-    let cadena1 = `Hace ${(TiempoMinutos / 60) * -1} horas`;
-    console.log(cadena1);
-    return cadena1;
-  }
-};
-
-const ConvertirFecha_Minutos = (fecha5) => {
-  let hoy = new Date();
-  let fecha4 = `${hoy.getFullYear()}-${
-    hoy.getMonth() + 1
-  }-${hoy.getDate()}T${hoy.getHours()}:${hoy.getMinutes()}`;
-
-  let fechaSeparada = SepararFecha(fecha4);
-  console.log(fechaSeparada);
-  let fechaSeparada1 = SepararFecha(fecha5);
-  let resultado = CalcularTiempoTranscurrido(fechaSeparada, fechaSeparada1);
-  return resultado;
+const tTranscurrido = (tiempoActual) => {
+  let date = tiempoActual.getMilliseconds();
+  return `${date}`;
 };
 
 const getCentenas = (c, d) => {
@@ -164,7 +117,6 @@ const getUnidades = (d, u) => {
 };
 
 const numberToText = (numero) => {
-  console.log(numero);
   if (numero <= 19) {
     return unidades[numero];
   } else if (numero == 20) {
@@ -230,5 +182,4 @@ const numberToText = (numero) => {
 module.exports = {
   numberToText,
   fechaTexto,
-  ConvertirFecha_Minutos,
 };

@@ -5,19 +5,13 @@ const numberParser = require("./Modules/NumeroaTexto");
 const app = express();
 const port = 3000;
 
-// var corsOptions = {
-//   origin: 'http://localhost:5000',
-//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
-
-//app.use(cors(corsOptions))
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/hola", (req, res) => {
   res.send({
-    response: "hola",
+    response: "Hola!! bienvenido soy Alfonso",
   });
 });
 
@@ -26,7 +20,7 @@ app.post("/textNumber", (req, res) => {
   console.log(number);
   if (number == null || Number.isNaN(number)) {
     return res.status(500).send({
-      response: "NUMERO INVALIDO",
+      response: "Número invalido",
     });
   }
   res.send({
@@ -39,7 +33,7 @@ app.post("/textDate", (req, res) => {
   console.log(date);
   if (date == null) {
     return res.status(500).send({
-      response: "FECHA INVALIDA",
+      response: "Fecha invalida",
     });
   }
   res.send({
@@ -47,16 +41,15 @@ app.post("/textDate", (req, res) => {
   });
 });
 
-app.post("/calcTime", (req, res) => {
-  var { time } = req.body;
-  console.log(time);
-  if (time == null) {
+app.post("/Fechas", (req, res) => {
+  var { date2 } = req.body;
+  if (date2 == null) {
     return res.status(500).send({
-      response: "NUMERO INVALIDO",
+      response: "Fecha invalida",
     });
   }
   res.send({
-    response: numberParser.ConvertirFecha_Minutos(time),
+    response: numberParser.tTranscurrido(date2),
   });
 });
 
