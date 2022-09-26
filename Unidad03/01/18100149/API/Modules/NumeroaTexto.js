@@ -100,8 +100,8 @@ const fechaTexto = (fecha3) => {
 };
 
 const tTranscurrido = (tiempoActual) => {
-  let date = tiempoActual.getMilliseconds();
-  return `${date}`;
+  let date = fecha(tiempoActual).getTime();
+  return `${new Date(date)}`;
 };
 
 const getCentenas = (c, d) => {
@@ -182,4 +182,5 @@ const numberToText = (numero) => {
 module.exports = {
   numberToText,
   fechaTexto,
+  tTranscurrido
 };
