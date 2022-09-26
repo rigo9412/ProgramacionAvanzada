@@ -43,16 +43,11 @@ inputFecha.addEventListener("input", (e) => {
 });
 
 Boton2.addEventListener("click", () => {
-  var responseClone;
   fetch("http://localhost:3000/Fechas", {
     method: "POST",
     body: JSON.stringify({ date2: inputFecha2.value }),
     headers: { "content-Type": "application/JSON" },
   })
-    .then((res) => {
-      res.json();
-    })
-    .then((res) => {
-      fechat.textContent = res.response;
-    });
+    .then((res) => res.json())
+    .then((res) => (fechat.textContent = res.response));
 });

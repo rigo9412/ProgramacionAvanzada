@@ -87,7 +87,7 @@ const fecha = (fecha2) => {
 
   res[2] = res2[0];
   res.push(res2[1].split(":"));
-  return new Date(res[0], res[1], res[2], res[3][0], res[3][1]);
+  return new Date(res[0], res[1] - 1, res[2], res[3][0], res[3][1]);
 };
 
 const fechaTexto = (fecha3) => {
@@ -100,8 +100,16 @@ const fechaTexto = (fecha3) => {
 };
 
 const tTranscurrido = (tiempoActual) => {
-  let date = fecha(tiempoActual).getTime();
-  return `${new Date(date)}`;
+  let date = Date.parse(fecha(tiempoActual));
+  let date2 = Date.parse(Date());
+  let diferencia = date - date2;
+  let dif2 = (diferencia / (1000 * 60)).toFixed(2);
+
+  if (diferencia < 0) {
+    return `Fue hace ${dif2 * -1} minutos`;
+  } else if (diferencia > 0) {
+    return `Dentro de ${dif2} minutos`;
+  }
 };
 
 const getCentenas = (c, d) => {
@@ -125,7 +133,7 @@ const numberToText = (numero) => {
     var d = parseInt(numero / 10);
     var u = parseInt(numero % 10);
     var result = decenas[d];
-    if (d == 1) result = `${result}${unidades[u]}`;
+    if (d == 1) result = `${result} y ${unidades[u]}`;
     else if (u > 0) result = `${result} y ${unidades[u]}`;
     return result;
   } else if (numero <= 1000) {
@@ -137,7 +145,7 @@ const numberToText = (numero) => {
     if (d == 0 && u == 0) {
       return getCentenas(c, d);
     } else if (d < 2 && u >= 1 && u <= 9) {
-      return `${getCentenas(c, d)} ${getUnidades(d, u)}`;
+      return `${getCentenas(c, d)}${getUnidades(d, u)}`;
     } else if (d == 2 && u >= 1 && u <= 9) {
       return `${getCentenas(c, d)} ${getDecenas(d, u)} y ${getUnidades(d, u)}`;
     } else if (d == 0 && u <= 9) {
@@ -160,17 +168,17 @@ const numberToText = (numero) => {
     } else if (d < 2 && u >= 1 && u <= 9) {
       return `${miles[m]} ${getCentenas(c, d)} ${getUnidades(d, u)}`;
     } else if (d == 2 && u >= 1 && u <= 9) {
-      return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(
+      return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(d, u)}${getUnidades(
         d,
         u
-      )} y ${getUnidades(d, u)}`;
+      )}`;
     } else if (d == 0 && u <= 9) {
       return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(d, u)}`;
     } else if (u > 0) {
-      return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(
+      return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(d, u)}${getUnidades(
         d,
         u
-      )} y ${getUnidades(d, u)}`;
+      )}`;
     } else {
       return `${miles[m]} ${getCentenas(c, d)} ${getDecenas(d, u)}`;
     }
@@ -182,5 +190,5 @@ const numberToText = (numero) => {
 module.exports = {
   numberToText,
   fechaTexto,
-  tTranscurrido
+  tTranscurrido,
 };
