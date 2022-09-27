@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+<body id="body">
+    <div id="Elementos">
+        <div class="Resultados">
+        <input type="text" id="num1" readonly><br>
+        <input type="text" id="num2" readonly>
+        </div>
+        <div class="Linea">
+            <input type="button" name="nume" value="%">
+            <input type="button" name="nume" value="CE">
+            <input type="button" name="nume" value="C">
+            <input type="button" name="nume" value="B">
+        </div>
+        <div class="Linea">
+            <input type="button" name="nume" value="1/x">
+            <input type="button" name="nume" value="^">
+            <input type="button" name="nume" value="√">
+            <input type="button" name="nume" value="/">
+        </div>
+        <div class="Linea">
+            <input type="button" name="nume" value="7">
+            <input type="button" name="nume" value="8">
+            <input type="button" name="nume" value="9">
+            <input type="button" name="nume" value="X">
+        </div>
+        <div class="Linea">
+            <input type="button" name="nume" value="4">
+            <input type="button" name="nume" value="5">
+            <input type="button" name="nume" value="6">
+            <input type="button" name="nume" value="-">
+        </div>
+        <div class="Linea"> 
+            <input type="button" name="nume" value="1">
+            <input type="button" name="nume" value="2">
+            <input type="button" name="nume" value="3">
+            <input type="button" name="nume" value="+">
+        </div>
+        <div class="Linea">
+            <input type="button" name="nume" value="+/-">
+            <input type="button" name="nume" value="0">
+            <input type="button" name="nume" value=".">
+            <input type="button" name="nume" value="=">
+        </div>
+    </div>
+        <div id="Historial_Contenedor">
+            <h1>Historial: </h1>
+            <div id="History"></div>
+        </div>
+    </div>
+</body>
+<script src="calculadora.js"></script>
+</html>
