@@ -103,20 +103,16 @@ export const fechaTexto = (fecha3:string) => {
 export const tTranscurrido = (tiempoActual:string) => {
   let date =fecha(tiempoActual);
   let date2 = new Date();
-  let diferencia = date.getTime() - date2.getTime();
+  let diferencia = date2.getTime() - date.getTime();
   let dif2 = Number((diferencia / (1000 * 60)).toFixed(2));
-  let cadena:string;
-
+  let cadena:string = "";
   if (diferencia < 0) {
-    cadena = `Fue hace ${dif2 * -1} minutos`
-    return cadena!;
+    cadena = `Dentro de ${dif2 * -1} minutos`;
   } else if (diferencia > 0) {
-    cadena = `Dentro de ${dif2} minutos`
-    return cadena!;
-  }else if(diferencia == 0){
-    cadena = `Ya es hora`
-    return cadena!;
+    cadena = `Fue hace ${dif2} minutos`;
   }
+  return cadena;
+  
 };
 
 const getCentenas = (c:number, d:number) => {

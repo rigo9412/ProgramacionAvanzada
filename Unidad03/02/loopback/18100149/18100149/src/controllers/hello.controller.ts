@@ -4,8 +4,8 @@ import { numberToText,fechaTexto,tTranscurrido} from '../NumeroaTexto'
 
 export class HelloController {
 
-  @get ("/hello")
-  hello():string{
+  @get ("/hola")
+  hola():string{
     return "Hola soy Alfonso"
   }
 
@@ -20,7 +20,7 @@ export class HelloController {
   }
 
   @post("/Fechas")
-  Fechas(@requestBody() req:string): string{
+  Fechas(@requestBody() req:any): string{
    return tTranscurrido(req.tiempo)
   }
 
