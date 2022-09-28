@@ -27,7 +27,8 @@ Boton.addEventListener("click", () => {
     headers: { "content-Type": "application/JSON" },
   })
     .then((res) => res.json())
-    .then((res) => (numerotexto.textContent = res.response))
+    // .then((res) => (numerotexto.textContent = res.response))
+    .then((res) => console.log(res.response))
     .catch((err) => console.log(err));
 });
 
