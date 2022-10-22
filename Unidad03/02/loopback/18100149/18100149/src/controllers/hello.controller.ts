@@ -11,7 +11,7 @@ export class HelloController {
 
   @post("/textNumber")
   textNumber(@requestBody() req:any): string{
-    return numberToText(Number( req.numero));
+    return numberToText(Number(req.number));
   }
 
   @post("/textDate")
