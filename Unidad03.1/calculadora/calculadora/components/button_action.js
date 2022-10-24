@@ -1,10 +1,7 @@
 
 
 const ButtonAction = ({ title,value, color = 'bg-slate-400', hoverColor = 'bg-slate-600', textColor = "text-white", onClickAction }) => {
-    
-    const localClick = (e) => {
-        onClickAction(value);
-    }
+    const localClick = (e) => onClickAction(value);
     
     return <div className="p-2">
         <button

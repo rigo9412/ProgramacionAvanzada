@@ -14,6 +14,7 @@ const useMath = () => {
     "+": sum,
     "-": res,
     "*": prod,
+    "X": prod,
     "/": div,
   }
 
