@@ -1,9 +1,10 @@
-const InputNumber = ({ background, color, wh }) => {
+const InputNumber = ({ valor }) => {
   return (
     <div>
       <input
+        value={valor}
+        className={` bg-black text-white w-80 h-20 font-sans text-6xl mt-20 `}
         readOnly
-        className={`${background} ${color} ${wh} font-sans text-2xl mt-60`}
       ></input>
     </div>
   );
