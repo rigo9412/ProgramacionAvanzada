@@ -7,13 +7,8 @@ import InputNumber from "../components/InputNumber";
 import ProcMat from "../hooks/ProcMat";
 
 export default function Home() {
-  const [
-    resultado,
-    AgregarNumero,
-    AgregarOperador,
-    Especiales,
-    OperadorInverso,
-  ] = ProcMat();
+  const [resultado, AgregarNumero, AgregarOperador, Especiales, AgregarPunto] =
+    ProcMat();
 
   return (
     <div className="flex-col bg-black items-center justify-center">
@@ -30,12 +25,12 @@ export default function Home() {
         <ButtonAction
           title="+/-"
           btnDiferencia="Prin"
-          click={OperadorInverso}
+          click={Especiales}
         ></ButtonAction>
         <ButtonAction
           title="%"
           btnDiferencia="Prin"
-          click={AgregarOperador}
+          click={Especiales}
         ></ButtonAction>
         <ButtonAction
           title="/"
@@ -115,7 +110,11 @@ export default function Home() {
           btnDiferencia="Num0"
           click={AgregarNumero}
         ></ButtonAction>
-        <ButtonAction title="." btnDiferencia="Num"></ButtonAction>
+        <ButtonAction
+          title="."
+          btnDiferencia="Num"
+          click={AgregarPunto}
+        ></ButtonAction>
         <ButtonAction
           title="="
           btnDiferencia="Ope"

@@ -11,15 +11,8 @@ const ProcMat = () => {
   const multiplicar = (numero1, numero2) => numero1 * numero2;
   const dividir = (numero1, numero2) => numero1 / numero2;
   const porcentaje = (numero1) => numero1 / 100;
-  const inverso = () => {
-    if (numero2 == null) {
-      setNumero1(resultado * -1);
-      return numero1;
-    } else {
-      setNumero2(resultado * -1);
-      return numero2;
-    }
-  };
+  const inverso = () => setResultado(resultado * -1);
+  const AddPunto = () => setResultado(`${resultado}${punto}`);
 
   const Operadores = {
     "+": sumar,
@@ -50,7 +43,13 @@ const ProcMat = () => {
   };
 
   const AuxResulPorcent = (opPorcent) => {
-    var auxResultado = Operadores[opPorcent](Number(numero1));
+    if (numero1 != null) {
+      let auxResultado = Operadores[opPorcent](Number(numero1));
+      setResultado(auxResultado);
+    } else {
+      let auxResultado = Operadores[opPorcent](Number(numero2));
+      setResultado(auxResultado);
+    }
   };
 
   const AgregarNumero = (numero) => {
@@ -61,9 +60,8 @@ const ProcMat = () => {
     numero1 == null ? setNumero1(numero2) : setOperador(auxOperador);
   };
 
-  const OperadorInverso = (operadorInv) => {
-    var auxResultadoInv = Operadores[operadorInv];
-    setResultado(auxResultadoInv);
+  const AgregarPunto = (punto) => {
+    setResultado(`${resultado}${punto}`);
   };
 
   const Especiales = (esp) => {
@@ -76,16 +74,15 @@ const ProcMat = () => {
       setNumero2(null);
       setOperador(null);
       setResultado(0);
+    } else if (esp == "%") {
+      AuxResulPorcent(esp);
+    } else if (esp) {
+      let auxResultadoInv = Operadores[esp];
+      setResultado(auxResultadoInv);
     }
   };
 
-  return [
-    resultado,
-    AgregarNumero,
-    AgregarOperador,
-    Especiales,
-    OperadorInverso,
-  ];
+  return [resultado, AgregarNumero, AgregarOperador, Especiales, AgregarPunto];
 };
 
 export default ProcMat;
