@@ -84,7 +84,7 @@ const useMath = () => {
 
 
   return [
-    result,addNumber,addOperator,calculateResult
+    result,operator,addNumber,addOperator,calculateResult
   ]
 
 }
