@@ -105,6 +105,7 @@ inHexa.addEventListener("keyup",(e) =>{
             a = 1
             valores(r,g,b,a)
         }else if(cadeHexa.length>6){
+            console.log(cadeHexa)
             inHexa.value=""
             window.alert("El valor Hexadecimal solo acepta 6 digitos")
         }
